@@ -1,16 +1,20 @@
 import { findByTitle } from '@testing-library/react';
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
 
 
 function Section({title, description, rightBtnText, leftBtnText, backgroundImg} ) {
   return (
      <Wrap bgImage={backgroundImg}>
-         <Itemtext>
-             <h1>{title}</h1>
-             <p>{description}</p>
-         </Itemtext>
+         <Fade bottom>
+            <Itemtext>
+               <h1>{title}</h1>
+               <p>{description}</p>
+            </Itemtext>
+         </Fade>
          <Buttons>
+             <Fade bottom>
         <ButtonGroup>
             <LeftButton>
               {leftBtnText}
@@ -21,7 +25,7 @@ function Section({title, description, rightBtnText, leftBtnText, backgroundImg} 
                             </RightButton>
                 }
         </ButtonGroup> 
-      
+        </Fade>
         <DownArrow src="images/down-arrow.svg"></DownArrow>
         </Buttons>
      </Wrap>
@@ -31,7 +35,7 @@ function Section({title, description, rightBtnText, leftBtnText, backgroundImg} 
 export default Section
 
 const Wrap =styled.div`
-  
+   
     width: 100vw;
     height: 100vh;
     background-size: cover; 
